@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-M">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Super-Heróis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-modal">
+        <div class="login-container">
+            <h2>Login - Catálogo de Heróis</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" value="admin" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p id="login-error" class="error-message"></p>
+                <p class="info-login">Admin: 'admin' / (sua senha) | Visitante: 'leitor' / 'leitor123'</p>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-container" class="hidden">
+        
+        <header class="app-header">
+            <h1>Catálogo de Super-Heróis</h1>
+            <div class="user-info">
+                <span id="user-details"></span>
+                <button id="logout-button">Sair</button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            
+            <nav class="hero-list-column">
+                <h3>Heróis Cadastrados</h3>
+                <ul id="hero-list">
+                    </ul>
+            </nav>
+
+            <section class="hero-details-column">
+                
+                <div id="welcome-view" class="details-view">
+                    <h2>Bem-vindo ao Catálogo</h2>
+                    <p>Selecione um herói na lista à esquerda para ver seus detalhes.</p>
+                </div>
+
+                <div id="hero-details-view" class="details-view hidden">
+                    
+                    <form id="edit-hero-form">
+
+                        <img id="hero-image-display" src="" alt="Imagem do Herói" />
+                        <h2 id="hero-name-title"></h2>
+                        <input type="hidden" id="hero-id-hidden">
+
+                        <p id="edit-hero-success" class="success-message"></p>
+                        <p id="edit-hero-error" class="error-message"></p>
+
+                        <div class="profile-section">
+                            <h3>Dados Principais (MySQL)</h3>
+                            
+                            <div class="form-group">
+                                <label for="nome_heroi">Nome do Herói</label>
+                                <input type="text" id="nome_heroi">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="identidade_secreta">Identidade Secreta</label>
+                                <input type="text" id="identidade_secreta">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="principal_vilao">Principal Vilão</label>
+                                <input type="text" id="principal_vilao">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="organizacao">Organização</label>
+                                <input type="text" id="organizacao" placeholder="Ex: Vingadores, Liga da Justiça...">
+                            </div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h3>Perfil Estendido (MongoDB)</h3>
+                            
+                            <div class="form-group">
+                                <label for="poderes">Poderes</label>
+                                <textarea id="poderes"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="referencias">Referências</label>
+                                <textarea id="referencias"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="outros_viloes">Outros Vilões</label>
+                                <textarea id="outros_viloes"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="trajes">Trajes</label>
+                                <textarea id="trajes"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feito_notavel">Feito Notável</label>
+                                <textarea id="feito_notavel"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" id="save-hero-button">Salvar Alterações</button>
+                    
+                    </form>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

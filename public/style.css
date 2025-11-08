@@ -1,0 +1,284 @@
+/* /public/style.css */
+:root {
+    --cor-bg-principal: #1a1a2e;
+    --cor-bg-secundaria: #16213e;
+    --cor-bg-terciaria: #0f3460;
+    --cor-texto-principal: #e9f1f7;
+    --cor-texto-secundario: #a0a0c0;
+    --cor-destaque: #e94560;
+    --cor-sucesso: #33d17a;
+    --cor-erro: #e94560;
+    --cor-borda: #0f3460;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--cor-bg-principal);
+    color: var(--cor-texto-principal);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* --- Layout Principal --- */
+.app-header {
+    background-color: var(--cor-bg-terciaria);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--cor-destaque);
+}
+
+.app-header h1 {
+    margin: 0;
+    color: var(--cor-destaque);
+    font-size: 1.5rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info span {
+    font-weight: 500;
+}
+
+.app-main {
+    display: flex;
+    height: calc(100vh - 65px); /* Altura total - altura do header */
+}
+
+.hero-list-column {
+    width: 300px;
+    background-color: var(--cor-bg-secundaria);
+    border-right: 1px solid var(--cor-borda);
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.hero-list-column h3 {
+    color: var(--cor-texto-secundario);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+}
+
+.hero-details-column {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* --- Modal de Login --- */
+#login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.login-container {
+    background-color: var(--cor-bg-secundaria);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    border-top: 4px solid var(--cor-destaque);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--cor-texto-principal);
+}
+
+.info-login {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--cor-texto-secundario);
+    background-color: var(--cor-bg-terciaria);
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+/* --- Lista de Heróis (Nav) --- */
+#hero-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#hero-list li {
+    padding: 0.8rem 1rem;
+    background-color: var(--cor-bg-terciaria);
+    border-bottom: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#hero-list li:hover {
+    background-color: #1a4a8a;
+    transform: translateX(5px);
+}
+
+#hero-list li.active {
+    background-color: var(--cor-destaque);
+    color: white;
+    font-weight: bold;
+}
+
+#hero-list .hero-name {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+#hero-list .hero-affiliation {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* --- Visões de Detalhes --- */
+.details-view {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-section {
+    background-color: var(--cor-bg-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-section h3 {
+    margin-top: 0;
+    color: var(--cor-destaque);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+}
+
+/* --- Formulários --- */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--cor-texto-secundario);
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--cor-bg-terciaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    color: var(--cor-texto-principal);
+    font-size: 1rem;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px; /* Adicionado */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- NOVO: Estilo para campos desabilitados --- */
+input:disabled,
+textarea:disabled {
+    background-color: #111a2c; /* Um pouco mais escuro */
+    color: var(--cor-texto-secundario);
+    cursor: not-allowed;
+}
+
+
+/* --- Botões --- */
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"], .btn-primary {
+    background-color: var(--cor-destaque);
+    color: white;
+    width: 100%;
+}
+
+button[type="submit"]:hover, .btn-primary:hover {
+    background-color: #c73049;
+}
+
+#logout-button {
+    background-color: var(--cor-bg-secundaria);
+    color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+}
+
+#logout-button:hover {
+    background-color: var(--cor-destaque);
+    color: white;
+}
+
+/* --- Classes Utilitárias --- */
+.hidden {
+    display: none !important;
+}
+
+.error-message {
+    color: var(--cor-erro);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.success-message {
+    color: var(--cor-sucesso);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* --- Estilos Adicionais para a Imagem do Herói --- */
+
+#hero-image-display {
+    display: block;
+    width: 100%;
+    max-width: 350px; /* Define uma largura máxima */
+    height: auto;
+    margin: 0 auto 1.5rem auto; /* Centraliza a imagem */
+    border-radius: 12px;
+    background-color: var(--cor-bg-terciaria);
+    border: 2px solid var(--cor-borda);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    object-fit: cover; /* Garante que a imagem cubra a área */
+    aspect-ratio: 1 / 1; /* Força a imagem a ser quadrada */
+}
+
+/* Alinha o H2 (título) no centro, já que a imagem está acima */
+#hero-name-title {
+    text-align: center;
+}
