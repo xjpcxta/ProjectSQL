@@ -1,1 +1,1 @@
-# Projeto N2 - Public / backend / package.json e package-lock.json
+# Projeto N2: Heróis - Public / backend / package.json e package-lock.json
